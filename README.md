@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Bcrypt Authentication Example
 
-First, run the development server:
+This project demonstrates how to implement secure password handling using the `bcrypt` library. It includes functionalities for password hashing and verification, making it a robust solution for user authentication in Node.js applications.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+- **Password Hashing**: Securely hashes user passwords using `bcrypt` to enhance security.
+- **Password Verification**: Compares hashed passwords with user input to verify authentication.
+- **Simple Integration**: Designed for easy integration into existing Node.js applications.
+
+## Prerequisites
+Before running the project, ensure you have the following installed:
+- Node.js (v14 or later)
+- npm (Node Package Manager)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/michalk1924/bcrypt.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd bcrypt
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Usage
+
+1. **Run the application**:
+   ```bash
+   npm run dev
+   ```
+2. **Testing the functionality**:
+   - Hash a password using `bcrypt`.
+   - Verify the hashed password against user input.
+
+## How It Works
+1. **Hashing**:
+   - Uses the `bcrypt.hash` function to create a secure hash of a password.
+   - Salts are automatically generated to add randomness and protect against rainbow table attacks.
+
+2. **Verification**:
+   - Uses the `bcrypt.compare` function to check if a given password matches the stored hash.
+
+## Example Code
+
+```javascript
+const bcrypt = require('bcrypt');
+
+// Hashing a password
+const password = 'mySecretPassword';
+bcrypt.hash(password, 10, (err, hash) => {
+  if (err) throw err;
+  console.log('Hashed Password:', hash);
+
+  // Verifying the password
+  bcrypt.compare(password, hash, (err, result) => {
+    if (err) throw err;
+    console.log('Password Match:', result);
+  });
+});
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
+Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+This project is licensed under the [MIT License](LICENSE).

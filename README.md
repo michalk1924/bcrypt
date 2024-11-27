@@ -32,7 +32,7 @@ Before running the project, ensure you have the following installed:
 
 1. **Run the application**:
    ```bash
-   node app.js
+   npm run dev
    ```
 2. **Testing the functionality**:
    - Hash a password using `bcrypt`.

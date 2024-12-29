@@ -65,6 +65,10 @@ bcrypt.hash(password, 10, (err, hash) => {
 });
 ```
 
+## Presentation
+Click on the link to see the presentation.
+https://docs.google.com/presentation/d/1RhiAGMHgufspLpalTG01zyZDeMSHjuWe/edit#slide=id.p1
+
 ## Contributing
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
